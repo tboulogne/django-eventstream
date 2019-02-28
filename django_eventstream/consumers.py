@@ -151,8 +151,9 @@ class EventsConsumer(AsyncHttpConsumer):
 					{'channels': e.channels})
 
 		extra_headers = {}
-		extra_headers['Cache-Control'] = 'no-cache'
-		extra_headers['X-Accel-Buffering'] = 'no'
+		extra_headers['Cache-Control'] = 'no-cache;'
+		extra_headers['X-Accel-Buffering'] = 'no;'
+		extra_headers['Content-Type'] = 'text/event-stream;'
 		augment_cors_headers(extra_headers)
 
 		# if this was a grip request or we encountered an error, respond now
